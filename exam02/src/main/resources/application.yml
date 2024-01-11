@@ -1,0 +1,56 @@
+server:
+  port: 3000
+
+spring:
+  # 데이터베이스 설정
+  datasource:
+    driverClassName:  oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: PROJECT
+    password: _aA123456
+
+  # JPA 설정
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect #어떤 DB인지 찾아줌
+        show_sql: true #기본설정은 쿼리문이 보이지 않음!!쿼리가 보이도록 설정을 해주자
+        format_sql: ture #들여쓰기, 줄개행이 들어가면서 이쁘게나옴~
+        use_sql_comments: true
+    hibernate:
+      ddlAuto: create #데이터 구조를 만들 수 있는 쿼리가 자동으로 실행 (테이블 자동 생성)
+
+  #라이브 리로드 설정
+  devtools:
+    livereload:
+      enabled: true
+
+  #타임리프 설정
+  thymeleaf:
+    cache: false
+    prefix: file:src/main/resources/templates/
+
+  #정적자원 설정(CSS, JS, 이미지)
+  web:
+    resources:
+      staticLocations: file:src/main/resources/static/
+
+  #파일 업로드 설정
+  servlet:
+    multipart:
+      maxFileSize: 20MB #파일 한 개 최대 용량
+      maxRequestSize: 60MB #전체파일 최대용량
+
+# 파일 경로 설정
+file:
+  url: /upload/
+  path: c:/uploads/
+
+#로거 설정
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
