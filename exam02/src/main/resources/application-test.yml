@@ -1,0 +1,31 @@
+spring:
+  # 데이터베이스 설정
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+
+  # JPA 설정
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        show_sql: true #기본설정은 쿼리문이 보이지 않음!!쿼리가 보이도록 설정을 해주자
+        format_sql: ture #들여쓰기, 줄개행이 들어가면서 이쁘게나옴~
+        use_sql_comments: true
+
+    hibernate:
+      ddlAuto: create #데이터 구조를 만들 수 있는 쿼리가 자동으로 실행 (테이블 자동 생성)
+      defer:
+      datasource:
+      initialization: true
+
+#로거 설정
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace

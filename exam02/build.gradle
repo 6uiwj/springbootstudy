@@ -27,6 +27,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.3.0'
+	implementation 'com.oracle.database.nls:orai18n:23.3.0.23.09'
 
 	runtimeOnly 'com.oracle.database.jdbc:ojdbc11:23.3.0.23.09'
 
@@ -35,9 +36,11 @@ dependencies {
 
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	testRuntimeOnly 'com.h2database:h2'
+	testRuntimeOnly 'com.h2database:h2:2.1.214'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
 }
 
 tasks.named('test') {
